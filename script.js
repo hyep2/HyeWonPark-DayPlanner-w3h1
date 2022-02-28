@@ -1,7 +1,7 @@
 //will show current date in the header
 document.getElementById('currentDay').innerHTML = moment().format('dddd, MMMM Do, YYYY');
 //***** store current date as local storage; everytime page is loaded, check current date with date in local storage. if it's different, then clear local storage
-let timestamps = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm']
+let timestamps = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm',]
 
 //when I click the save button, the text for that event is saved into local storage and will persist even when I refresh
 //$('#saveBtn').on('click', function () {
@@ -31,3 +31,34 @@ document.getElementById('2pm').value = localStorage.getItem('2pm');
 document.getElementById('3pm').value = localStorage.getItem('3pm');
 document.getElementById('4pm').value = localStorage.getItem('4pm');
 document.getElementById('5pm').value = localStorage.getItem('5pm');
+
+
+//each timeblock is color coded to indicate whether it is in the past, present, or future
+function timeColorChange() {
+  let times = document.getElementsByClassName("timeblock");
+  let present = parseInt(moment().format('H'));
+  let colorBlock = document.getElementsByClassName("description")
+ 
+  //for each timeblock, will be comparing the times with the present and will add/remove the 'past/present/future' classes accordingly to change colors
+  for (let i = 0; i < times.length; i++) {
+    if (parseInt(times[i].id) === present) {
+      colorBlock[i].classList.add('present');
+      
+    }
+    else if (parseInt(times[i].id) < present) {
+      colorBlock[i].classList.add('past');
+      colorBlock[i].classList.remove('present');
+      
+      
+    }
+    else if (parseInt(times[i].id) > present){
+      colorBlock[i].classList.add('future');
+      colorBlock[i].classList.remove('present');
+      colorBlock[i].classList.remove('past');
+    }
+  }
+}
+timeColorChange();
+
+// let hello = document.querySelector('.timeblock');
+// console.log(hello.innerText);
