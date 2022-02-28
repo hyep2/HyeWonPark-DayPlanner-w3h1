@@ -1,12 +1,9 @@
 //will show current date in the header
 document.getElementById('currentDay').innerHTML = moment().format('dddd, MMMM Do, YYYY');
-//***** store current date as local storage; everytime page is loaded, check current date with date in local storage. if it's different, then clear local storage
-let timestamps = ['9am','10am','11am','12pm','1pm','2pm','3pm','4pm',]
+
 
 //when I click the save button, the text for that event is saved into local storage and will persist even when I refresh
 //$('#saveBtn').on('click', function () {
-
-
 btns = document.getElementsByClassName("saveBtn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function () {
