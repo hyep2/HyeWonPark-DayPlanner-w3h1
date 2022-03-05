@@ -7,3 +7,5 @@ Also, the user can save the events if they press the 'save button', which will h
 Limitations: need to manually delete the events for a new day.
 
 Contact: If you have problems accessing this app, please contact Hye Won at hyewonpark26@gmail.com.
+
+![app picture](./workdaypic.png)
